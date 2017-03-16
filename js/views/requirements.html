@@ -1,0 +1,249 @@
+<!--
+ Copyright (c) 2014, 2017, Oracle and/or its affiliates.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+
+<div class="oj-hybrid-padding oj-panel" style="border-bottom:none">
+ 	<div id='toolbar-container'>
+	  <div aria-label="Editing Toolbar" aria-controls="controlled"
+	       data-bind="ojComponent: {component:'ojToolbar'}, css:toolbarClasses">
+	    <button id="add"
+	            data-bind="ojComponent: {
+	                component:'ojButton', label: 'Add', display: 'icons', 
+	                icons: {start:'demo-icon-font new-icon-24'}
+	            }">
+	    </button>
+	    <button id="Edit"
+	            data-bind="ojComponent: {
+	                component:'ojButton', label: 'Edit', display: 'icons', 
+	                icons: {start:'demo-icon-font edit-icon-24'}
+	            }">
+	    </button>
+	    <button id="delete"
+	            data-bind="ojComponent: {
+	                component:'ojButton', label: 'Delete', display: 'icons', 
+	                icons: {start:'demo-icon-font remove-icon-24'}
+	            }">
+	    </button>
+	    <button id="copy"
+	            data-bind="ojComponent: {
+	                component:'ojButton', label: 'Copy', display: 'icons', 
+	                icons: {start:'demo-icon-font copy-icon-24'}
+	            }">
+	    </button>
+	    <button id="paste"
+	            data-bind="ojComponent: {
+	                component:'ojButton', label: 'Paste', display: 'icons', 
+	                icons: {start:'demo-icon-font paste-icon-24'}
+	            }">
+	    </button>
+	    <button id="clipboard"
+	            data-bind="ojComponent: {
+	                component:'ojButton', label: 'View Clipboard', display: 'icons', 
+	                icons: {start:'demo-icon-font file-text-icon-24'}
+	            }">
+	    </button>
+	    <span role="separator" aria-orientation="vertical" class="oj-toolbar-separator"></span> 
+	    <button id="search"
+	            data-bind="ojComponent: {
+	                component:'ojButton', label: 'Find', display: 'icons', 
+	                icons: {start:'demo-icon-font search-icon-24'}
+	            }">
+	    </button>  
+	    <button id="history"
+	            data-bind="ojComponent: {
+	                component:'ojButton', label: 'History', display: 'icons', 
+	                icons: {start:'demo-icon-font calendar-icon-24'}
+	            }">
+	    </button>  
+	    <span role="separator" aria-orientation="vertical" class="oj-toolbar-separator"></span>
+		<button id="moveup" 
+	            data-bind="ojComponent: {
+	                component:'ojButton', label: 'Move up', display: 'icons', 
+	                icons: {start:'demo-icon-font up-icon-24'}, disabled: false
+	            }">
+	    </button>
+	    <button id="movedown" 
+	            data-bind="ojComponent: {
+	                component:'ojButton', label: 'Move down', display: 'icons', 
+	                icons: {start:'demo-icon-font down-icon-24'}, disabled: false
+	            }">
+	    </button>
+	    <button id="moveleft" 
+	            data-bind="ojComponent: {
+	                component:'ojButton', label: 'Move left', display: 'icons', 
+	                icons: {start:'demo-icon-font left-icon-24'}, disabled: false
+	            }">
+	    </button>
+	    <button id="moveright" 
+	            data-bind="ojComponent: {
+	                component:'ojButton', label: 'Move right', display: 'icons', 
+	                icons: {start:'demo-icon-font right-icon-24'}, disabled: false
+	            }">
+	    </button>
+	    <nobr>
+	    <button id="sort" 
+	            data-bind="ojComponent: {
+	                component:'ojButton', label: 'Sort:', display: 'half', 
+	                icons: {start:'demo-icon-font sort-icon-24'}, disabled: false
+	            }">
+	    	</button>
+		    <select class="oj-select" type="text">
+		    	<option>None</option>
+		    </select>
+		 </nobr>
+	    <span role="separator" aria-orientation="vertical" class="oj-toolbar-separator"></span>
+	    <nobr>
+	    	<button id="group" 
+	            data-bind="ojComponent: {
+	                component:'ojButton', label: 'Group:', display: 'half', 
+	                icons: {start:'demo-icon-font group-icon-24'}, disabled: false
+	            }">
+	    	</button>
+		    <select class="oj-select">
+		    	<option>None</option>
+		    </select>
+		</nobr>
+	    <span role="separator" aria-orientation="vertical" class="oj-toolbar-separator"></span>
+	    <nobr>
+	    	<button id="filter" 
+	            data-bind="ojComponent: {
+	                component:'ojButton', label: 'Filter:', display: 'half', 
+	                icons: {start:'demo-icon-font filter-icon-24'}, disabled: false
+	            }">
+	    	</button>
+		    <select class="oj-select" type="text">
+		    	<option>None</option>
+		    </select>
+		</nobr>
+	    <span role="separator" aria-orientation="vertical" class="oj-toolbar-separator"></span>
+	    <nobr>
+		    <span>Goto:&nbsp;&nbsp;&nbsp;</span>
+	  		<input id="goto-input" type="text" class="oj-form-control oj-inputtext-nocomp" data-bind="value: ''"/>
+			<button id="goto" 
+			            data-bind="ojComponent: {
+			                component:'ojButton', label: 'Jump to', display: 'icons', 
+			                icons: {start:'demo-icon-font goback-icon-24'}, disabled: false
+			            }">
+			</button>
+		</nobr>
+	  </div>
+	</div>
+	<div class="oj-flex oj-flex-items-pad oj-panel" style="border-bottom:none">
+		<!--because of databind namespace, treemenu component is set in index page, try menuid-->
+		<div id="tree"  class="oj-sm-12  oj-md-3 ob-lg-1 oj-flex-item well" contextmenu="treeMenu"
+				data-bind="ojComponent:
+				{
+				    component: 'ojTree',
+				    selectionMode: 'multiple',
+					hover: setActiveNode,
+					data:{data: getJson}
+				}">
+		</div>
+
+		<div class="oj-sm-12  oj-md-9 ob-lg-11 oj-flexoj-flex-item">
+			<div class="oj-flex oj-flex-items-pad">
+				<div class="oj-sm-12">
+					&nbsp;&nbsp;<div class="title">Requirement <span data-bind="text:selectedNode()"></span></div>
+					<span aria-label="Editing Toolbar" aria-controls="controlled" data-bind="ojComponent: {component:'ojToolbar'}, css:{toolbarClasses}" class="font-blue pull-right">
+						<button id="edit"  
+						    data-bind="ojComponent: {
+								component:'ojButton', label: 'Edit Requirement', chorming: 'half', 
+								icons: {start:'demo-icon-font edit-icon-24'}, disabled: false
+							}">
+						</button>
+						<button id="print"  
+						    data-bind="ojComponent: {
+								component:'ojButton', label: 'Print', chorming: 'half', 
+								icons: {start:'demo-icon-font print-icon-24'}, disabled: false
+							}">
+						</button>
+						<button id="email"  
+						    data-bind="ojComponent: {
+								component:'ojButton', label: 'Email   ', chorming: 'half', 
+								icons: {start:'demo-icon-font email-icon-24'}, disabled: false
+							}">
+						</button>
+					</span>
+				</div>
+				<hr class="componentUnderline oj-sm-12 margin-none">
+				<br/>
+				<div class="oj-flex oj-flex-items-pad oj-sm-12">
+					<div class="oj-sm-12  oj-md-9 ob-lg-11 oj-flex-item" id="detailPanel">
+						<h4 class="oj-header font-blue">User authentication should be required in order to access stock brokerage site</h4>
+						<small class="font-blue">Last modified by Default User on February 03,2002 at 3:11 AM</small>
+						<ul class="oj-ul">
+							<li><b>Created:&nbsp;&nbsp;</b>February 03,2002 at 3:11 AM <b>&nbsp;By:&nbsp;&nbsp;</b>Default user<br/></li>
+						  	<li><b>Type:&nbsp;&nbsp;</b>Default user on February 03,2002 at 3:11 AM<br/></li>
+						  	<li><b>Owner:&nbsp;&nbsp;</b>Default user on February 03,2002 at 3:11 AM<br/></li>
+						  	<li><b>Status:&nbsp;&nbsp;</b>Default user on February 03,2002 at 3:11 AM<br/></li>
+						  	<li><b>Priority:&nbsp;&nbsp;</b>Default user on February 03,2002 at 3:11 AM<br/></li>
+						  	<li><br/></li>
+						  	<li><b>Description:&nbsp;&nbsp;</b>
+						  		<p>Here is some paragraph text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pharetra, risus ac interdum sollicitudin, sem erat ultrices ipsum, eget vehicula nibh augue sollicitudin ligula. Sed ullamcorper cursus feugiat. Mauris tristique aliquam dictum. Nulla facilisi. Nulla ut sapien sapien. Phasellus tristique arcu id ipsum mattis id aliquam risus sollicitudin. Maecenas dictum, dolor at vehicula vulputate, mi ipsum viverra mauris, eget sollicitudin nulla eros eget metus.</p>
+						  	</li>
+						</ul>
+						<br/>
+
+					</div>
+					<div class="oj-sm-12 oj-md-3 ob-lg-1 oj-flex-item">
+						<ul class="oj-ul well" id="attachPanel">
+							<li class="oj-flex oj-flex-items-pad">
+								<b class="oj-sm-6 oj-flex-item">Attachments</b>
+								<span class="oj-sm-6 oj-flex-item">
+									<button 
+									    data-bind="ojComponent: {
+											component:'ojButton', label: 'Add/Edit', chroming: 'half', 
+											icons: {start:'demo-icon-font add-icon-24'}, disabled: false
+										}">
+									</button>
+								</span>
+								<hr class="componentUnderline oj-sm-12 oj-flex-item"/>
+							</li>
+							<li></li>
+							<li class="oj-flex oj-flex-items-pad">
+								<b class="oj-sm-6 oj-flex-item">Links</b>
+								<span class="oj-sm-6 oj-flex-item">
+									<button 
+								    data-bind="ojComponent: {
+										component:'ojButton', label: 'Add/Edit', chroming: 'half',
+										icons: {start:'demo-icon-font add-icon-24'}, disabled: false
+									}">
+									</button>
+								</span>
+								<hr class="componentUnderline oj-sm-12 oj-flex-item"/>
+							</li>
+							<li></li>
+							<li class="oj-flex oj-flex-items-pad">
+								<b class="oj-sm-6 oj-flex-item">Associatied Requirements</b>
+								<span class="oj-sm-6 oj-flex-item">
+									<button 
+								    data-bind="ojComponent: {
+										component:'ojButton', label: 'Add/Edit',chroming: 'half', 
+										icons: {start:'demo-icon-font add-icon-24'}, disabled: false
+									}">
+									</button>
+								</span>
+								<hr class="componentUnderline oj-sm-12 oj-flex-item"/>
+							</li>
+							<li></li>
+							<li class="oj-flex oj-flex-items-pad">
+								<b class="oj-sm-6 oj-flex-item">Associatied Test Sets</b>
+								<span class="oj-sm-6 oj-flex-item">
+									<button 
+								    data-bind="ojComponent: {
+										component:'ojButton',  label: 'Add/Edit',chroming: 'half', 
+										icons: {start:'demo-icon-font add-icon-24'}, disabled: false
+									}">
+									</button>
+								</span>
+								<hr class="componentUnderline oj-sm-12 oj-flex-item"/>
+							</li>
+							<li></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

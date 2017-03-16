@@ -1,0 +1,108 @@
+/**
+ * Copyright (c) 2014, 2017, Oracle and/or its affiliates.
+ * The Universal Permissive License (UPL), Version 1.0
+ */
+/*
+ * Your about ViewModel code goes here
+ */
+define(['ojs/ojcore', 'knockout', 'jquery','ojs/ojTree','ojs/ojknockout', 'ojs/ojcheckboxset', 'ojs/ojbutton', 'ojs/ojtoolbar', 'ojs/ojmenu'],
+ function(oj, ko, $) {
+    function TestPlanViewModel() {
+      var self = this;
+      self.handleActivated = function(info) {
+      };
+      self.handleAttached = function(info) {
+        // Implement if needed
+      };
+      self.handleBindingsApplied = function(info) {
+        // Implement if needed
+      };
+
+      self.handleDetached = function(info) {
+        // Implement if needed
+      };
+
+      //selected node
+      self.selectedNode = ko.observable('none');
+
+      self.getJson = getJson;
+
+      self.toolbarClassNames = ko.observableArray([]);
+
+      self.toolbarClasses = ko.computed(function() {
+            return self.toolbarClassNames().join(" ");
+      }, self);
+
+
+      self.drawer =
+      {
+        "displayMode": "push",
+        "selector": "#drawer",
+        "content": "#mainPage",
+        "autoDismiss": "none"
+      };
+      
+     
+
+      self.toggleDrawer = function()
+      {
+        return oj.OffcanvasUtils.toggle(self.drawer);
+      };
+      self.updateWidth = function(isUpdate,isAdd){
+        if(isUpdate){
+
+        }else{
+          if(isAdd){
+            $(self.drawer.content).width($(self.drawer.content).width()+$(self.drawer.selector).width()+20);
+          }else{
+            $(self.drawer.content).width($(self.drawer.content).width()-$(self.drawer.selector).width()-20)
+          }
+        }
+      }
+ 
+      $(document).ready(
+        function()
+        {
+          $(self.drawer.selector).on("ojclose", function(event, offcanvas) {
+            //self.updateWidth(false,true);
+          });
+          $(self.drawer.selector).on("ojopen", function(event, offcanvas) {
+            //self.updateWidth(false,false);
+          });
+          self.toggleDrawer();
+          $("#tree").on("ojoptionchange", function(e, ui) {
+                 if (ui.option == "selection") {
+                   // show selected nodes
+                   var selected = _arrayToStr(ui.value) ;
+                   self.selectedNode(selected);
+                 }
+          });
+        }
+      );
+    }
+   function  getJson(node, fn)       // get data json
+    {
+      $.get("../../data/tree.json",function(ret){
+              fn(ret["data"]);
+            });
+        // pass to ojTree using supplied function
+    };
+
+    // Convert a jQuery list of html element nodes to string containing node id's.
+    function _arrayToStr(arr)
+    {
+       var s = "" ;
+       $.each(arr, function(i, val)
+          {
+            if (i) {
+              s += ", " ;
+            }
+            s += $(arr[i]).attr("id") ;
+          }) ;
+
+       return s ;
+    };
+    return new TestPlanViewModel();
+  }
+);
+$.re

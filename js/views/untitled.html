@@ -1,0 +1,132 @@
+<!--
+ Copyright (c) 2014, 2017, Oracle and/or its affiliates.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+
+<div class="oj-hybrid-padding">
+  <div id='toolbar-container'>
+    <div aria-label="Editing Toolbar" aria-controls="controlled"
+         data-bind="ojComponent: {component:'ojToolbar'}, css:toolbarClasses">
+      <button id="add"
+              data-bind="ojComponent: {
+                  component:'ojButton', label: 'Add', display: 'icons', 
+                  icons: {start:'demo-icon-font add-icon-24'}
+              }">
+      </button>
+      <button id="Edit"
+              data-bind="ojComponent: {
+                  component:'ojButton', label: 'Edit', display: 'icons', 
+                  icons: {start:'demo-icon-font edit-icon-24'}
+              }">
+      </button>
+      <button id="delete"
+              data-bind="ojComponent: {
+                  component:'ojButton', label: 'Delete', display: 'icons', 
+                  icons: {start:'demo-icon-font remove-icon-24'}
+              }">
+      </button>
+      <button id="copy"
+              data-bind="ojComponent: {
+                  component:'ojButton', label: 'Copy', display: 'icons', 
+                  icons: {start:'demo-icon-font copy-icon-24'}
+              }">
+      </button>
+      <button id="paste"
+              data-bind="ojComponent: {
+                  component:'ojButton', label: 'Paste', display: 'icons', 
+                  icons: {start:'demo-icon-font paste-icon-24'}
+              }">
+      </button>
+      <button id="clipboard"
+              data-bind="ojComponent: {
+                  component:'ojButton', label: 'View Clipboard', display: 'icons', 
+                  icons: {start:'demo-icon-font file-text-icon-24'}
+              }">
+      </button>
+      <span role="separator" aria-orientation="vertical" class="oj-toolbar-separator"></span> 
+      <button id="history"
+              data-bind="ojComponent: {
+                  component:'ojButton', label: 'History', display: 'icons', 
+                  icons: {start:'demo-icon-font calendar-icon-24'}
+              }">
+      </button>  
+      <span role="separator" aria-orientation="vertical" class="oj-toolbar-separator"></span>
+    <button id="moveup" 
+              data-bind="ojComponent: {
+                  component:'ojButton', label: 'Move up', display: 'icons', 
+                  icons: {start:'demo-icon-font up-icon-24'}, disabled: false
+              }">
+      </button>
+      <button id="movedown" 
+              data-bind="ojComponent: {
+                  component:'ojButton', label: 'Move down', display: 'icons', 
+                  icons: {start:'demo-icon-font down-icon-24'}, disabled: false
+              }">
+      </button>
+      <button id="moveleft" 
+              data-bind="ojComponent: {
+                  component:'ojButton', label: 'Move left', display: 'icons', 
+                  icons: {start:'demo-icon-font left-icon-24'}, disabled: false
+              }">
+      </button>
+      <button id="moveright" 
+              data-bind="ojComponent: {
+                  component:'ojButton', label: 'Move right', display: 'icons', 
+                  icons: {start:'demo-icon-font right-icon-24'}, disabled: false
+              }">
+      </button>
+      
+      <span role="separator" aria-orientation="vertical" class="oj-toolbar-separator"></span>
+      <label for="goto-input" class="oj-label-nocomp">Goto:&nbsp;&nbsp;&nbsp;</label>
+      <input id="goto-input" type="text" class="oj-form-control oj-inputtext-nocomp" data-bind="value: ''"/>
+    <button id="goto" 
+                data-bind="ojComponent: {
+                    component:'ojButton', label: 'go to', display: 'icons', 
+                    icons: {start:'demo-icon-font goback-icon-24'}, disabled: false
+                }">
+    </button>
+    </div>
+  </div>
+  <div class="oj-flex oj-hybrid-padding">
+    <div class="oj-flex-item">
+      <article id="componentDemoContent" style="width: 100%;">
+        <div id="parentDiv">
+          <div class="oj-offcanvas-outer-wrapper" style="border: 1px solid #d1e6f9;min-height:600px;" id="parentDiv">
+
+              <!-- start offcanvas -->
+              <div id="drawer" class="oj-offcanvas-start oj-panel oj-panel-alt2" style="width: 250px">
+                  <div id="tree" style="width: 100%;"
+                         data-bind="ojComponent:
+                         {
+                           component: 'ojTree',
+                           selectionMode: 'multiple',
+                           data:{data: getJson}
+                         }">
+                     </div>
+              </div>
+
+              <!-- main content -->
+              <div id="mainPage" style="margin:-10px 0 0 0;border:0px;width:100%" class="oj-panel">
+              <div>
+                <button data-bind="click: toggleDrawer,
+                  ojComponent: {component:'ojButton', 
+                  label: 'Toggle start offcanvas', 
+                    chroming: 'half',
+                    display: 'icons', 
+                    icons: {start: 'oj-fwk-icon-hamburger oj-fwk-icon'}}">
+                </button>
+                    <span class="title" data-bind="text:selectedNode()"></span>
+                
+              </div>
+              <hr class="componentUnderline">
+              <div class="oj-flex oj-flex-items-pad">
+                <div class="oj-sm-9 oj-flex-item">1</div>
+                <div class="oj-sm-3 oj-flex-item">2</div>
+              </div>
+            </div>
+            </div>  
+         </div>
+      </article>
+    </div>    
+    </div>
+</div>
