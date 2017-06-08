@@ -108,9 +108,39 @@
         <script type="text/javascript" src="js/libs/require/require.js"/>
         <script type="text/javascript" src="js/main.js"/>
     ```
-    line 1 include the library file to requirejs.
-    line 2 include the JET entry for index page.
-    2. main.js
-        2.1 config requirejs for js dependency. And notice that you can include i18n resource files in ojL10n option.
-        2.2 Bid app(Jet controller)  to globalBody, and bid treeMenu module to treeMenu (You can write specific modules to different subpage)
-        2.3 
+    Line 1 include the library file to requirejs.   
+    Line 2 include the JET entry for index page.
+    2. main.js is divided into two part
+      1. The first part configs requirejs for js dependency. And notice that you can include i18n resource files in ojL10n option.
+      2. The second one bids app(Jet controller)  to globalBody, and bid treeMenu module to treeMenu (You can write specific modules to different subpage)
+    3. appController.js
+      1. This file return app module used in main.js and points out modules bidding to router menu
+      2. It checks 'user' in cookie for permission
+      3. It defines translate function for i18n
+    4. issues.js
+      1. The module controls path  '#issues', mode detials can be viewed with codes
+* Request detial
+    * myRequest.js    
+    All request must be sent by APIs defined in this file.    
+    Because permission is controlled using token, 401 status trigger a reAuth action which send a request to refresh token state
+* I18n    
+  Default language files can be found in nls folder. And each of them should have architecture as below:
+  ```javascript
+    define({'root':{
+        key:value,
+        ...
+    },
+    "languageName":boolean, # if true, file with same name should be found in the language folder
+    ...
+    });
+  ```
+  Specific language files should have architecture like this:
+  ```javascript
+    define({'root':{
+        key:value,
+        ...
+    }
+    });
+  ```
+* Front-end    
+  
