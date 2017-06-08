@@ -103,5 +103,14 @@
         -login.html
  ```
 * Control flow
-    1. ds
-    2. dsd
+    1. Open "index.html"
+    ```java
+        <script type="text/javascript" src="js/libs/require/require.js"/>
+        <script type="text/javascript" src="js/main.js"/>
+    ```
+    line 1 include the library file to requirejs.
+    line 2 include the JET entry for index page.
+    2. main.js
+        2.1 config requirejs for js dependency. And notice that you can include i18n resource files in ojL10n option.
+        2.2 Bid app(Jet controller)  to globalBody, and bid treeMenu module to treeMenu (You can write specific modules to different subpage)
+        2.3 
