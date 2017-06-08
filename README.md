@@ -108,7 +108,7 @@
         <script type="text/javascript" src="js/libs/require/require.js"/>
         <script type="text/javascript" src="js/main.js"/>
     ```
-    Line 1 include the library file to requirejs.   
+    Line 1 include the library file to requirejs.
     Line 2 include the JET entry for index page.
     2. main.js is divided into two part
       1. The first part configs requirejs for js dependency. And notice that you can include i18n resource files in ojL10n option.
