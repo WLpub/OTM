@@ -143,4 +143,23 @@
     });
   ```
 * Front-end    
-  
+  All front-end is responsive. And Main struture is like below:
+  ```
+    <html>
+        <head></head>
+        <body>
+            <main-body>
+                <!--buttons for navigation-->
+                <navigation-bar></navigation-bar> 
+                
+                <!--banner for database/user/.. information-->
+                <banner></banner>
+                
+                <!--main view frame and show the subpath html file-->
+                <main-view></main-view>
+            </main-body>
+        <body>
+    </html>
+  ```
+  * Responsive
+  Respoe
