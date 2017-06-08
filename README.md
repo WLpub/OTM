@@ -22,11 +22,11 @@
         cd npm 
         node cli.js install npm -gf 
     ```
-    After this, run:
+     * After this, run:
     ```java
         npm install underscore
     ```
-    You can get result like below:
+     * You can get result like below:
     ```java
     underscore@3.10.10 ./node_modules/underscore 
     ```
