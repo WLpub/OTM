@@ -81,8 +81,8 @@
  ```
     src
         -css
-            --fonts
-            --images
+            --fonts             # fonts file, include in css files, and is important for font-style icons.
+            --images            # images used in css and html files
         -js
             --libs
                 ---jquery
@@ -91,10 +91,17 @@
                 ---issues.js    # Mian controller for special path #issues
             --views
                 ---issues.html  # Main view for special path #issuses
+            --resources         # language files for i18
+                ---nls
+                    ----menu.js # default language
+                    ----zh      # language files for chinese
+                        -----menu.js    #this file is response for default language file
             --appController.js  # Controller for index.html
             --login.js          # Controller for login.html
-            --main.js           # Apply module bindings for index.html, this 
-        -locales
+            --main.js           # Apply module bindings for index.html, this file need to be included in html files and is the entry for whole JET module
         -index.html
         -login.html
  ```
+* Control flow
+    1. ds
+    2. dsd
