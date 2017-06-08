@@ -161,5 +161,9 @@
         <body>
     </html>
   ```
-  * Responsive
-  Respoe
+  * Responsive design
+      Responsive is contorlled by "oj-flex-item" and some operation after "smScreen()".
+    * For oj-flex-item: carefully design the size correspondence to difference window size.
+    * For opration after "smScreen()", you can set "visible", "css class" and etc for better perfomance.
+  * I18n    
+    Use data-bind="text:translate('key')" for i18n.
