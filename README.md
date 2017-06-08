@@ -17,19 +17,17 @@
         3.10.10
     ```
     * If your NodeJS does not integrate with npm, please try follow steps:
-     *
-      *
-      ```java
+      1. ```java
         git clone --recursive git://github.com/isaacs/npm.git 
         cd npm 
         node cli.js install npm -gf 
       ```
       
-      * After this, run:
+      2. After this, run:
       ```java
          npm install underscore
       ```
-      * You can get result like below:
+      3. You can get result like below:
       ```java
          underscore@3.10.10 ./node_modules/underscore 
        ```
