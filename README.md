@@ -103,22 +103,22 @@
         -login.html
  ```
 * Control flow
-   * 1. Open "index.html"
+    * Open "index.html"
     ```java
         <script type="text/javascript" src="js/libs/require/require.js"/>
         <script type="text/javascript" src="js/main.js"/>
     ```
-    Line 1 include the library file to requirejs.    
-    Line 2 include the JET entry for index page.    
-   * 2. main.js is divided into two part    
-      1. The first part configs requirejs for js dependency. And notice that you can include i18n resource files in ojL10n option.    
-      2. The second one bids app(Jet controller)  to globalBody, and bid treeMenu module to treeMenu (You can write specific modules to different subpage)    
-    3. appController.js
-      1. This file return app module used in main.js and points out modules bidding to router menu
-      2. It checks 'user' in cookie for permission
-      3. It defines translate function for i18n
-    4. issues.js
-      1. The module controls path  '#issues', mode detials can be viewed with codes
+    Line 1 include the library file to requirejs.   
+    Line 2 include the JET entry for index page.
+    * main.js is divided into two part
+      * The first part configs requirejs for js dependency. And notice that you can include i18n resource files in ojL10n option.
+      * The second one bids app(Jet controller)  to globalBody, and bid treeMenu module to treeMenu (You can write specific modules to different subpage)
+    * appController.js
+      * This file return app module used in main.js and points out modules bidding to router menu
+      * It checks 'user' in cookie for permission
+      * It defines translate function for i18n
+    * issues.js
+      * The module controls path  '#issues', mode detials can be viewed with codes
 * Request detial
     * myRequest.js    
     All request must be sent by APIs defined in this file.    
