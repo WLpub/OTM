@@ -17,20 +17,20 @@
         3.10.10
     ```
     * If your NodeJS does not integrate with npm, please try follow steps:
-      1. ```java
-        git clone --recursive git://github.com/isaacs/npm.git 
-        cd npm 
-        node cli.js install npm -gf 
-      ```
-      
-      2. After this, run:
-      ```java
-         npm install underscore
-      ```
-      3. You can get result like below:
-      ```java
-         underscore@3.10.10 ./node_modules/underscore 
-       ```
+      * 1. install npm
+        ```java
+            git clone --recursive git://github.com/isaacs/npm.git 
+            cd npm 
+            node cli.js install npm -gf 
+        ```
+      * 2. After this, install underscore:
+        ```java
+            npm install underscore
+        ```
+      * 3. You can get result like below:
+        ```java
+            underscore@3.10.10 ./node_modules/underscore 
+        ```
   * Setup JET enviroment
     * Using npm, run the following commands:
     ```java
